@@ -1,8 +1,8 @@
 {
-  "name": "cdk-remix-construct",
+  "name": "cdk-remix-app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/cdk-remix-construct.git"
+    "url": "https://github.com/rogerchi/cdk-remix-app.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -17,6 +17,7 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
+    "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
@@ -29,17 +30,20 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "user",
-    "email": "user@domain.com",
+    "name": "Roger Chi",
+    "email": "roger@rogerchi.com",
     "organization": false
   },
   "devDependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "2.24.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.24.0-alpha.0",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "2.24.0",
     "constructs": "10.0.5",
+    "esbuild": "^0.16.10",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^3.5.2",
@@ -59,7 +63,9 @@
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "@aws-cdk/aws-apigatewayv2-alpha": "2.24.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.24.0-alpha.0",
+    "aws-cdk-lib": "^2.24.0",
     "constructs": "^10.0.5"
   },
   "keywords": [
@@ -112,7 +118,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "cdk-remix-app",
+        "module": "cdk_remix-app"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
