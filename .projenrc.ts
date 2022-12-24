@@ -1,4 +1,5 @@
 import { awscdk } from 'projen';
+import { NpmAccess } from 'projen/lib/javascript';
 
 const cdkVersion = '2.24.0';
 const namespace = '@rogerchi';
@@ -24,6 +25,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'cdk_remix-app',
   },
   releaseToNpm: true,
+  npmAccess: NpmAccess.PUBLIC,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
